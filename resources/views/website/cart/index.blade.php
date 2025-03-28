@@ -124,7 +124,7 @@
                                             <div class="me-auto">
                                                 <div class="fw-bold">Subtotal</div>
                                             </div>
-                                            <span class="fw-bold">{{ Cart::subtotal() + 60 }} ৳</span>
+                                            <span class="fw-bold">{{  doubleval(Cart::subtotal()) + 60 }} ৳</span>
                                         </li>
                                     </ul>
 
@@ -133,7 +133,7 @@
                                             <!-- btn -->
                                             <button class="btn btn-primary btn-lg d-flex justify-content-between align-items-center" type="submit">
                                                 Go to Checkout
-                                                <span class="fw-bold">{{ Cart::subtotal() + 60 }} ৳</span>
+                                                <span class="fw-bold">{{  doubleval(Cart::subtotal()) + 60 }} ৳</span>
                                             </button>
                                         </div>
                                     </a>

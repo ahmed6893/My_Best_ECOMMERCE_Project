@@ -42,6 +42,7 @@
 
     <!-- Register Modal -->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-light">
                 <div class="modal-header bg-white">
@@ -129,6 +130,8 @@
         <!-- section category -->
         <section class="my-lg-14 my-8">
             <div class="container">
+                <h5>{{session('message')}} </h5>
+                <h5>{{session('error')}} </h5>
                 <div class="row align-items-center mb-6">
                     <div class="col-10">
                         <div>
@@ -420,8 +423,8 @@
                     <!-- item -->
                     <div class="item">
                         <!-- item -->
+                        @foreach($products as $product)
                         <div class="card card-product mb-lg-4">
-                            @foreach($products as $product)
                               <div class="card-body">
                                 <!-- badge -->
                                 <div class="text-center position-relative">
@@ -485,10 +488,9 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
                         </div>
+                        @endforeach
                     </div>
-
                 </div>
             </div>
         </section>

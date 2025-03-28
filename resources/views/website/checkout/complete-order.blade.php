@@ -13,7 +13,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-body text-success">
+                                    <h5>{{session('success')}} </h5>
                                     <h5>{{session('message')}} </h5>
+                                    <h5>{{session('error')}} </h5>
                             </div>
                         </div>
                     </div>
