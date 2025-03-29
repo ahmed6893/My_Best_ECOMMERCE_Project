@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KilogramController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\CustomerDashboardController;
 
 Route::get('/',                         [FreshCartController::class,'index'])               ->name('home');
 Route::get('/fresh/{id}',               [FreshCartController::class,'product'])             ->name('fresh');
@@ -38,6 +39,12 @@ Route::post('/customer/register',[CustomerController::class,'saveNewCustomer']) 
 Route::get('/customer/login',    [CustomerController::class,'login'])           ->name('customer.login');
 Route::post('/customer/login',   [CustomerController::class,'loginCheck'])      ->name('customer.login');
 Route::post('/logout',           [CustomerController::class, 'logout'])         ->name('customer.logout');
+
+Route::get('/customer/orders',        [CustomerDashboardController::class,'index'])        ->name('customer.orders');
+Route::post('/customer/setting',      [CustomerDashboardController::class,'setting'])      ->name('customer.setting');
+Route::post('/customer/save-details', [CustomerDashboardController::class, 'saveDetails'])->name('customer.saveDetails');
+Route::post('/customer/address',      [CustomerDashboardController::class,'address'])      ->name('customer.address');
+Route::post('/customer/notification', [CustomerDashboardController::class,'notification']) ->name('customer.notification');
 
 
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

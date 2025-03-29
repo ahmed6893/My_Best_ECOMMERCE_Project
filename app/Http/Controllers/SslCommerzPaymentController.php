@@ -62,8 +62,8 @@ class SslCommerzPaymentController extends Controller
         $post_data['product_profile'] = "physical-goods";
 
         # OPTIONAL PARAMETERS
-        $post_data['value_a'] = "ref001";
-        $post_data['value_b'] = "ref002";
+        $post_data['value_a'] = $customer->id;
+        $post_data['value_b'] = $customer->first_name.$customer->last_name;;
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
@@ -182,6 +182,8 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
+        Session::put('customerId',$request->input('value_a'));
+        Session::put('customerName',$request->input('value_b'));
         try {
             \Log::info('SSLCommerz Success Callback:', $request->all());
 

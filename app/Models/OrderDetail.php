@@ -10,4 +10,8 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    public function kilogram()
+    {
+        return $this->belongsTo(Kilogram::class, 'product_kilogram', 'id');
+    }
 }

@@ -278,7 +278,7 @@
                     </div>
                     @if(Session('customerId'))
                         <div class="list-inline-item ">
-                            <span class="text-white me-2"><a href="">Welcome, {{ Session('customerName') }}</a></span>
+                            <span class="text-white me-2"><a href="{{route('customer.orders')}}">Welcome, {{ Session('customerName') }}</a></span>
                         </div>
                         <div class="list-inline-item ">
                             <a href="{{route('customer.logout')}}" class="btn btn-dark d-none d-xl-block">Sign Out</a>
