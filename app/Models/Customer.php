@@ -11,7 +11,7 @@ class Customer extends Model implements Authenticatable
 {
     use HasFactory, AuthenticatableTrait;
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'password'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password','phone'];
 
     public static $customer;
 

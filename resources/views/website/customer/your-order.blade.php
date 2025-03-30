@@ -97,7 +97,7 @@
                                          @foreach($order->orderDetails as $detail)
                                          <tr>
                                         <td class="align-middle border-top-0 w-0">
-                                            <a href="#"><img src="{{$detail->product_image}}" alt="Ecommerce" class="icon-shape icon-xl" /></a>
+                                            <a href="#"><img src="{{asset($detail->product_image)}}" alt="Ecommerce" class="icon-shape icon-xl" /></a>
                                         </td>
                                         <td class="align-middle border-top-0">
                                             <a href="#" class="fw-semibold text-inherit">

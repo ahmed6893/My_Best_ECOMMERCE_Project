@@ -84,25 +84,30 @@
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <!-- form -->
-                                        <form >
+                                        <form action="{{route('customer.updateDetails')}}" method="POST">
+                                            @csrf
                                             <!-- input -->
                                             <div class="mb-3">
-                                                <label class="form-label">Name</label>
-                                                <input type="text" class="form-control" placeholder="jitu chauhan" />
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control" name="first_name" value="{{ Auth::guard('customer')->user()->first_name }}" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" name="last_name" value="{{ Auth::guard('customer')->user()->last_name }}" />
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
-                                                <input type="email" class="form-control" placeholder="example@gmail.com" />
+                                                <input type="email" class="form-control" name="email" value="{{Auth::guard('customer')->user()->email}}" />
                                             </div>
                                             <!-- input -->
                                             <div class="mb-5">
                                                 <label class="form-label">Phone</label>
-                                                <input type="text" class="form-control" placeholder="Phone number" />
+                                                <input type="text" class="form-control" name="phone" placeholder="Phone number" value="{{Auth::guard('customer')->user()->phone ?? ''}}" />
                                             </div>
                                             <!-- button -->
                                             <div class="mb-3">
-                                                <button class="btn btn-primary">Save Details</button>
+                                                <button class="btn btn-primary" type="submit">Save Details</button>
                                             </div>
                                         </form>
                                     </div>

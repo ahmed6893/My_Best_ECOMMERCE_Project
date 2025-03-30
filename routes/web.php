@@ -41,10 +41,10 @@ Route::post('/customer/login',   [CustomerController::class,'loginCheck'])      
 Route::post('/logout',           [CustomerController::class, 'logout'])         ->name('customer.logout');
 
 Route::get('/customer/orders',        [CustomerDashboardController::class,'index'])        ->name('customer.orders');
-Route::post('/customer/setting',      [CustomerDashboardController::class,'setting'])      ->name('customer.setting');
-Route::post('/customer/save-details', [CustomerDashboardController::class, 'saveDetails'])->name('customer.saveDetails');
-Route::post('/customer/address',      [CustomerDashboardController::class,'address'])      ->name('customer.address');
-Route::post('/customer/notification', [CustomerDashboardController::class,'notification']) ->name('customer.notification');
+Route::get('/customer/setting',      [CustomerDashboardController::class,'setting'])      ->name('customer.setting');
+Route::post('/customer/update-details', [CustomerDashboardController::class, 'updateDetails'])->name('customer.updateDetails');
+Route::get('/customer/address',      [CustomerDashboardController::class,'address'])      ->name('customer.address');
+Route::get('/customer/notification', [CustomerDashboardController::class,'notification']) ->name('customer.notification');
 
 
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
