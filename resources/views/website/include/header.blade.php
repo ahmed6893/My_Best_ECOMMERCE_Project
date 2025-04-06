@@ -285,7 +285,7 @@
                         </div>
                     @else
                     <div class="list-inline-item me-3">
-                        <a href="{{route('customer.register')}}" class="text-reset" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                        <a href="{{route('customer.register')}}" class="text-reset">Register</a>
                     </div>
                     <div class="list-inline-item">
                         <a href="{{route('customer.login')}}" class="btn btn-dark d-none d-xl-block">Sign In</a>

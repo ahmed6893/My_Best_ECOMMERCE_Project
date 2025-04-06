@@ -38,6 +38,12 @@
                                     <div class="invalid-feedback">Please enter last name.</div>
                                 </div>
                                 <div class="col-12">
+                                    <label for="formSignupPhone" class="form-label visually-hidden">Phone</label>
+                                    <input type="text" class="form-control" id="formSignupPhone" placeholder="Phone Number" name="phone" required />
+                                    <div class="invalid-feedback">Please enter phone number.</div>
+                                </div>
+
+                                <div class="col-12">
                                     <!-- input -->
                                     <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
                                     <input type="email" class="form-control" id="formSignupEmail" placeholder="Email" name="email" required />

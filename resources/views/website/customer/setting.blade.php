@@ -79,6 +79,8 @@
                                 <h2 class="mb-0">Account Setting</h2>
                             </div>
                             <div>
+                                <h4 class="text-center text-success">{{session('success')}}</h4>
+                                <h4 class="text-center text-success">{{session('error')}}</h4>
                                 <!-- heading -->
                                 <h5 class="mb-4">Account details</h5>
                                 <div class="row">
@@ -117,24 +119,30 @@
                             <div class="pe-lg-14">
                                 <!-- heading -->
                                 <h5 class="mb-4">Password</h5>
-                                <form class="row row-cols-1 row-cols-lg-2">
+                                <form class="row row-cols-1 row-cols-lg-2" action="{{route('customer.update.password')}}" method="POST">
+                                    @csrf
+                                    <!-- input -->
+                                        <div class="mb-3 col">
+                                            <label class="form-label">Current Password</label>
+                                            <input type="password" class="form-control" name="current_password" required/>
+                                        </div>
                                     <!-- input -->
                                     <div class="mb-3 col">
                                         <label class="form-label">New Password</label>
-                                        <input type="password" class="form-control" placeholder="**********" />
+                                        <input type="password" class="form-control" name="new_password" required/>
                                     </div>
                                     <!-- input -->
                                     <div class="mb-3 col">
-                                        <label class="form-label">Current Password</label>
-                                        <input type="password" class="form-control" placeholder="**********" />
+                                        <label class="form-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" name="new_password_confirmation" required/>
                                     </div>
-                                    <!-- input -->
+
                                     <div class="col-12">
                                         <p class="mb-4">
                                             Can’t remember your current password?
                                             <a href="#">Reset your password.</a>
                                         </p>
-                                        <a href="#" class="btn btn-primary">Save Password</a>
+                                        <button type="submit" class="btn btn-primary">Save Password</button>
                                     </div>
                                 </form>
                             </div>

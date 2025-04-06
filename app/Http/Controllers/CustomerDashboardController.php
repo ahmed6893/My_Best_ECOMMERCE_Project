@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Session;
 
 class CustomerDashboardController extends Controller
@@ -15,6 +16,8 @@ class CustomerDashboardController extends Controller
     }
     public function setting()
     {
+        $user = auth()->user();  // Check if user data is being loaded
+        dd($user);
         return view('website.customer.setting');
     }
 
@@ -36,6 +39,26 @@ class CustomerDashboardController extends Controller
         ]);
 
         return back()->with('success', 'Details updated successfully!');
+    }
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password'=>'required',
+            'new_password'=>'required|min:8|confirmed',
+        ]);
+
+        $customer = auth()->guard('customer')->user();
+
+        if(!Hash::check($request->current_password , $customer->password))
+        {
+            return back()->with('error','Current password is incorrect');
+        }
+        else
+        $customer->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('success','Password updated successfully');
     }
 
     public function address()

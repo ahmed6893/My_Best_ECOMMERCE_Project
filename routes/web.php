@@ -38,14 +38,16 @@ Route::get('/customer/register', [CustomerController::class,'register'])        
 Route::post('/customer/register',[CustomerController::class,'saveNewCustomer']) ->name('customer.register');
 Route::get('/customer/login',    [CustomerController::class,'login'])           ->name('customer.login');
 Route::post('/customer/login',   [CustomerController::class,'loginCheck'])      ->name('customer.login');
-Route::post('/logout',           [CustomerController::class, 'logout'])         ->name('customer.logout');
+Route::get('/logout',            [CustomerController::class, 'logout'])         ->name('customer.logout');
 
-Route::get('/customer/orders',        [CustomerDashboardController::class,'index'])        ->name('customer.orders');
-Route::get('/customer/setting',      [CustomerDashboardController::class,'setting'])      ->name('customer.setting');
-Route::post('/customer/update-details', [CustomerDashboardController::class, 'updateDetails'])->name('customer.updateDetails');
-Route::get('/customer/address',      [CustomerDashboardController::class,'address'])      ->name('customer.address');
-Route::get('/customer/notification', [CustomerDashboardController::class,'notification']) ->name('customer.notification');
-
+Route::middleware('auth')->group(function () {
+    Route::get('/customer/orders',           [CustomerDashboardController::class,'index'])          ->name('customer.orders');
+    Route::get('/customer/setting',          [CustomerDashboardController::class,'setting'])        ->name('customer.setting');
+    Route::post('/customer/update-details',  [CustomerDashboardController::class, 'updateDetails']) ->name('customer.updateDetails');
+    Route::post('/customer/update-password', [CustomerDashboardController::class, 'updatePassword'])->name('customer.update.password');
+    Route::get('/customer/address',          [CustomerDashboardController::class,'address'])        ->name('customer.address');
+    Route::get('/customer/notification',     [CustomerDashboardController::class,'notification'])   ->name('customer.notification');
+});
 
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
