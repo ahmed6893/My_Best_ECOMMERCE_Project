@@ -62,7 +62,7 @@ class CustomerController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('customer')->logout();
 
         Session::forget('customerId');
         Session::forget('customerName');

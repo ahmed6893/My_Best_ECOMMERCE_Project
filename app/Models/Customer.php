@@ -28,4 +28,8 @@ class Customer extends Model implements Authenticatable
         return self::$customer;
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

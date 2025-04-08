@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 use Session;
 
 class CustomerDashboardController extends Controller
@@ -16,9 +17,8 @@ class CustomerDashboardController extends Controller
     }
     public function setting()
     {
-        $user = auth()->user();  // Check if user data is being loaded
-        dd($user);
-        return view('website.customer.setting');
+        $customer = Auth::guard('customer')->user();
+        return view('website.customer.setting',['customer'=>$customer]);
     }
 
     public function updateDetails(Request $request)

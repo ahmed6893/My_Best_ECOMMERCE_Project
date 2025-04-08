@@ -91,21 +91,21 @@
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label class="form-label">First Name</label>
-                                                <input type="text" class="form-control" name="first_name" value="{{ Auth::guard('customer')->user()->first_name }}" />
+                                                <input type="text" class="form-control" name="first_name" value="{{$customer->first_name}}" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Last Name</label>
-                                                <input type="text" class="form-control" name="last_name" value="{{ Auth::guard('customer')->user()->last_name }}" />
+                                                <input type="text" class="form-control" name="last_name" value="{{$customer->last_name}}" />
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" value="{{Auth::guard('customer')->user()->email}}" />
+                                                <input type="email" class="form-control" name="email" value="{{$customer->email}}" />
                                             </div>
                                             <!-- input -->
                                             <div class="mb-5">
                                                 <label class="form-label">Phone</label>
-                                                <input type="text" class="form-control" name="phone" placeholder="Phone number" value="{{Auth::guard('customer')->user()->phone ?? ''}}" />
+                                                <input type="text" class="form-control" name="phone" placeholder="Phone number" value="{{$customer->phone}}" />
                                             </div>
                                             <!-- button -->
                                             <div class="mb-3">

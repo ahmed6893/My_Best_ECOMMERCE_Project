@@ -112,13 +112,12 @@
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon"><i class="bi bi-people"></i></span>
                             <span class="nav-link-text">Customers</span>
-                            <span class="badge bg-light-success text-dark-success ms-2">New</span>
                         </div>
                     </a>
                     <div id="navCustomer" class="collapse " data-bs-parent="#sideNavbar">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link " href="customers.html">Customers Module</a>
+                                <a class="nav-link " href="{{route('all-customer')}}">Customers Module</a>
                             </li>
                             <!-- Nav item -->
                             <li class="nav-item">

@@ -18,6 +18,7 @@ use App\Http\Controllers\KilogramController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\AdminCustomerController;
 
 Route::get('/',                         [FreshCartController::class,'index'])               ->name('home');
 Route::get('/fresh/{id}',               [FreshCartController::class,'product'])             ->name('fresh');
@@ -40,7 +41,7 @@ Route::get('/customer/login',    [CustomerController::class,'login'])           
 Route::post('/customer/login',   [CustomerController::class,'loginCheck'])      ->name('customer.login');
 Route::get('/logout',            [CustomerController::class, 'logout'])         ->name('customer.logout');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:customer')->group(function () {
     Route::get('/customer/orders',           [CustomerDashboardController::class,'index'])          ->name('customer.orders');
     Route::get('/customer/setting',          [CustomerDashboardController::class,'setting'])        ->name('customer.setting');
     Route::post('/customer/update-details',  [CustomerDashboardController::class, 'updateDetails']) ->name('customer.updateDetails');
@@ -85,4 +86,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',]
     Route::get('/order/download-invoice/{id}',  [OrderController::class,'downloadInvoice']) ->name('order.download-invoice');
     Route::post('/order/destroy/{id}',          [OrderController::class,'destroy'])         ->name('order.destroy');
 
+    Route::get('/all-customers', [AdminCustomerController::class, 'index'])->name('all-customer');
 });
